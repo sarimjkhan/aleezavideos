@@ -191,6 +191,27 @@ def tone(freq, dur, vol=0.4, decay=6):
     return [vol * math.sin(math.tau * freq * i / SR) * math.exp(-decay * i / SR) for i in range(n)]
 
 
+class Voice:
+    """Cheerful narrator (Kokoro, runs offline). Returns samples at SR, or None if unavailable."""
+    def __init__(self, name="af_heart", speed=1.1):
+        self.name, self.speed, self.k = name, speed, None
+        d = os.path.expanduser(os.environ.get("KOKORO_DIR", "~/.cache/kokoro"))
+        try:
+            from kokoro_onnx import Kokoro
+            self.k = Kokoro(f"{d}/kokoro-v1.0.onnx", f"{d}/voices-v1.0.bin")
+        except Exception as e:
+            print("Voice disabled:", e)
+
+    def say(self, text, speed=None):
+        if not self.k:
+            return []
+        import numpy as np
+        x, sr = self.k.create(text, voice=self.name, speed=speed or self.speed, lang="en-us")
+        n = int(len(x) * SR / sr)
+        y = np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x)
+        return (y * 0.9).tolist()
+
+
 def build_audio(path, events, total):
     buf = [0.0] * int(SR * total)
     for at, samples in events:
@@ -203,7 +224,9 @@ def build_audio(path, events, total):
         wf.writeframes(b"".join(struct.pack("<h", int(max(-1, min(1, v)) * 32000)) for v in buf))
 
 
-def render(cfg, output, landscape=False):
+def render(cfg, output, landscape=False, voice=True):
+    vo = Voice() if voice else None
+    say = (lambda t, **k: vo.say(t, **k)) if vo else (lambda t, **k: [])
     w, h = (1920, 1080) if landscape else (1080, 1920)
     think, rev = cfg.get("think_seconds", 6), cfg.get("reveal_seconds", 3)
     puzzles = cfg["puzzles"]
@@ -211,19 +234,23 @@ def render(cfg, output, landscape=False):
 
     # timeline: (duration, frame_fn)
     segs, events, clock = [], [], 0.0
-    segs.append((3.0, lambda t: r.title(cfg["title"], cfg["subtitle"], t, 3.0)))
+    segs.append((4.5, lambda t: r.title(cfg["title"], cfg["subtitle"], t, 4.5)))
     events.append((0.0, tone(660, 0.5)))
-    clock += 3.0
+    events.append((0.4, say(f"{cfg['title']} Can you guess the word? Let's go!", speed=1.05)))
+    clock += 4.5
     for n, p in enumerate(puzzles):
         segs.append((think, lambda t, n=n, p=p: r.question(n, len(puzzles), p, t, think)))
+        events.append((clock + 0.1, say(f"Number {n + 1}!" if n < len(puzzles) - 1 else "Last one!")))
         for s in range(int(think)):
             events.append((clock + s, tone(880, 0.12, 0.25, 20)))
         clock += think
         segs.append((rev, lambda t, n=n, p=p: r.reveal(n, p, t)))
         events.append((clock, tone(988, 0.15, 0.4, 8) + tone(1319, 0.5, 0.4, 5)))
+        events.append((clock + 0.35, say(p["answer"].title() + "!", speed=1.0)))
         clock += rev
-    segs.append((3.0, r.outro))
-    clock += 3.0
+    segs.append((4.0, r.outro))
+    events.append((clock + 0.2, say("How many did you get? Tell us in the comments!")))
+    clock += 4.0
 
     tmp = tempfile.mkdtemp()
     wav = os.path.join(tmp, "a.wav")
@@ -244,9 +271,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("config", nargs="?", default="puzzles.json")
     ap.add_argument("-o", "--output", default="quiz.mp4")
+    ap.add_argument("--no-voice", action="store_true")
     ap.add_argument("--landscape", action="store_true", help="1920x1080 instead of vertical 1080x1920")
     a = ap.parse_args()
-    render(json.load(open(a.config, encoding="utf-8")), a.output, a.landscape)
+    render(json.load(open(a.config, encoding="utf-8")), a.output, a.landscape, not a.no_voice)
 
 
 if __name__ == "__main__":
