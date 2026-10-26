@@ -14,7 +14,7 @@ TITLES = ["Guess the Word!", "Emoji Quiz!", "Can You Guess It?", "Emoji Riddles!
 def make(bank, rnd, n, think, name_prefix, landscape, outdir, idx):
     ps = rnd.sample(bank, n)
     cfg = {"title": rnd.choice(TITLES), "subtitle": "Emoji + Emoji = ?",
-           "think_seconds": think, "reveal_seconds": 2, "puzzles": ps}
+           "think_seconds": think, "reveal_seconds": 2.5, "puzzles": ps}
     path = os.path.join(outdir, f"{name_prefix}_{idx:02d}.mp4")
     render(cfg, path, landscape)
 

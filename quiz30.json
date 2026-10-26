@@ -2,7 +2,7 @@
  "title": "30 Emoji Quizzes!",
  "subtitle": "Guess the word before the cat gets the fish",
  "think_seconds": 4,
- "reveal_seconds": 2,
+ "reveal_seconds": 2.5,
  "puzzles": [
   {
    "emoji": [
