@@ -1,0 +1,218 @@
+{
+ "title": "30 Emoji Quizzes!",
+ "subtitle": "Guess the word before the cat gets the fish",
+ "think_seconds": 4,
+ "reveal_seconds": 2,
+ "puzzles": [
+  {
+   "emoji": [
+    "🍳",
+    "🥞"
+   ],
+   "answer": "PANCAKE"
+  },
+  {
+   "emoji": [
+    "🧺",
+    "🏀"
+   ],
+   "answer": "BASKETBALL"
+  },
+  {
+   "emoji": [
+    "🐔",
+    "🍗"
+   ],
+   "answer": "CHICKEN NUGGET"
+  },
+  {
+   "emoji": [
+    "🍯",
+    "🌙"
+   ],
+   "answer": "HONEYMOON"
+  },
+  {
+   "emoji": [
+    "🌈",
+    "🦄"
+   ],
+   "answer": "UNICORN"
+  },
+  {
+   "emoji": [
+    "🥶",
+    "🍦"
+   ],
+   "answer": "BRAIN FREEZE"
+  },
+  {
+   "emoji": [
+    "🐝",
+    "🏠"
+   ],
+   "answer": "BEEHIVE"
+  },
+  {
+   "emoji": [
+    "🌙",
+    "💡"
+   ],
+   "answer": "MOONLIGHT"
+  },
+  {
+   "emoji": [
+    "🌟",
+    "🐟"
+   ],
+   "answer": "STARFISH"
+  },
+  {
+   "emoji": [
+    "🥇",
+    "🐟"
+   ],
+   "answer": "GOLDFISH"
+  },
+  {
+   "emoji": [
+    "🥤",
+    "🎂"
+   ],
+   "answer": "CUPCAKE"
+  },
+  {
+   "emoji": [
+    "🧈",
+    "🪰"
+   ],
+   "answer": "BUTTERFLY"
+  },
+  {
+   "emoji": [
+    "🍎",
+    "🥧"
+   ],
+   "answer": "APPLE PIE"
+  },
+  {
+   "emoji": [
+    "🌳",
+    "🏠"
+   ],
+   "answer": "TREEHOUSE"
+  },
+  {
+   "emoji": [
+    "🧊",
+    "🍦"
+   ],
+   "answer": "ICE CREAM"
+  },
+  {
+   "emoji": [
+    "🐸",
+    "🦵"
+   ],
+   "answer": "FROG LEG"
+  },
+  {
+   "emoji": [
+    "📖",
+    "🐛"
+   ],
+   "answer": "BOOKWORM"
+  },
+  {
+   "emoji": [
+    "🍕",
+    "🎉"
+   ],
+   "answer": "PIZZA PARTY"
+  },
+  {
+   "emoji": [
+    "🔥",
+    "🪰"
+   ],
+   "answer": "FIREFLY"
+  },
+  {
+   "emoji": [
+    "🎂",
+    "📅"
+   ],
+   "answer": "BIRTHDAY"
+  },
+  {
+   "emoji": [
+    "🐉",
+    "🪰"
+   ],
+   "answer": "DRAGONFLY"
+  },
+  {
+   "emoji": [
+    "🔥",
+    "🚚"
+   ],
+   "answer": "FIRETRUCK"
+  },
+  {
+   "emoji": [
+    "🔵",
+    "🍓"
+   ],
+   "answer": "BLUEBERRY"
+  },
+  {
+   "emoji": [
+    "🍌",
+    "🥧"
+   ],
+   "answer": "BANANA PIE"
+  },
+  {
+   "emoji": [
+    "🌊",
+    "🐴"
+   ],
+   "answer": "SEAHORSE"
+  },
+  {
+   "emoji": [
+    "🐱",
+    "🐟"
+   ],
+   "answer": "CATFISH"
+  },
+  {
+   "emoji": [
+    "💧",
+    "🍈"
+   ],
+   "answer": "WATERMELON"
+  },
+  {
+   "emoji": [
+    "🌊",
+    "🐚"
+   ],
+   "answer": "SEASHELL"
+  },
+  {
+   "emoji": [
+    "🐭",
+    "🪤"
+   ],
+   "answer": "MOUSETRAP"
+  },
+  {
+   "emoji": [
+    "⭐",
+    "🚢"
+   ],
+   "answer": "STARSHIP"
+  }
+ ]
+}

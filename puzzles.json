@@ -1,0 +1,16 @@
+{
+  "title": "Guess the Word!",
+  "subtitle": "Emoji + Emoji = ?",
+  "think_seconds": 6,
+  "reveal_seconds": 3,
+  "puzzles": [
+    {"emoji": ["🧊", "🍦"], "answer": "ICE CREAM"},
+    {"emoji": ["🍯", "🌙"], "answer": "HONEYMOON"},
+    {"emoji": ["🔥", "🪰"], "answer": "FIREFLY"},
+    {"emoji": ["🌟", "🐟"], "answer": "STARFISH"},
+    {"emoji": ["🥜", "🧈"], "answer": "PEANUT BUTTER"},
+    {"emoji": ["🍎", "🥧"], "answer": "APPLE PIE"},
+    {"emoji": ["🌞", "🌸"], "answer": "SUNFLOWER"},
+    {"emoji": ["🦷", "🧚"], "answer": "TOOTH FAIRY"}
+  ]
+}
