@@ -14,7 +14,7 @@ TITLES = ["Guess the Word!", "Emoji Quiz!", "Can You Guess It?", "Emoji Riddles!
 def make(bank, rnd, n, think, name_prefix, landscape, outdir, idx):
     ps = rnd.sample(bank, n)
     cfg = {"title": rnd.choice(TITLES), "subtitle": "Emoji + Emoji = ?",
-           "think_seconds": think, "reveal_seconds": 3, "puzzles": ps}
+           "think_seconds": think, "reveal_seconds": 2, "puzzles": ps}
     path = os.path.join(outdir, f"{name_prefix}_{idx:02d}.mp4")
     render(cfg, path, landscape)
 
@@ -39,9 +39,9 @@ def main():
         rnd = random.Random()
         a.tag = a.tag or datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     for i in range(a.shorts):   # vertical, ~35s: 4 puzzles
-        make(bank, rnd, 4, 5, f"short_{a.tag}", False, a.out, i + 1)
+        make(bank, rnd, 4, 4, f"short_{a.tag}", False, a.out, i + 1)
     for i in range(a.long):     # landscape, ~2.5min: 12 puzzles
-        make(bank, rnd, 12, 6, f"long_{a.tag}", True, a.out, i + 1)
+        make(bank, rnd, 12, 4, f"long_{a.tag}", True, a.out, i + 1)
 
 
 if __name__ == "__main__":
