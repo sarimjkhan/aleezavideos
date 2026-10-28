@@ -1,0 +1,48 @@
+{
+ "title": "5 Emoji Quizzes!",
+ "subtitle": "Guess the word before the cat gets the fish!",
+ "think_seconds": 4,
+ "reveal_seconds": 2.5,
+ "outro_lines": [
+  "Did you get them all?",
+  "Tell a friend and play again!"
+ ],
+ "outro_voice": "Did you get them all? Tell a friend and play again!",
+ "puzzles": [
+  {
+   "emoji": [
+    "🌽",
+    "🍞"
+   ],
+   "answer": "CORNBREAD"
+  },
+  {
+   "emoji": [
+    "🐻",
+    "🧸"
+   ],
+   "answer": "TEDDY BEAR"
+  },
+  {
+   "emoji": [
+    "👩",
+    "🐞"
+   ],
+   "answer": "LADYBUG"
+  },
+  {
+   "emoji": [
+    "🌙",
+    "🌸"
+   ],
+   "answer": "MOONFLOWER"
+  },
+  {
+   "emoji": [
+    "🐶",
+    "🏠"
+   ],
+   "answer": "DOGHOUSE"
+  }
+ ]
+}
