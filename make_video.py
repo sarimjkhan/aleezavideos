@@ -231,13 +231,15 @@ class Renderer:
                 centered(d, op, text_font(int(120 * u * sp)), x + (size + gap) / 2, h * 0.45, (255, 255, 255))
             x += size + gap
 
+    outro_lines = ("How many did you get?", "Tell us in the comments!")
+
     def outro(self, t):
         im = self.background(2)
         self.floaters(im)
         d = ImageDraw.Draw(im, "RGBA")
         u, w, h = self.u, self.w, self.h
-        centered(d, "How many did you get?", text_font(int(70 * u)), w / 2, h * 0.38, (255, 255, 255))
-        centered(d, "Tell us in the comments!", text_font(int(64 * u)), w / 2, h * 0.5, (90, 60, 120))
+        centered(d, self.outro_lines[0], text_font(int(70 * u)), w / 2, h * 0.38, (255, 255, 255))
+        centered(d, self.outro_lines[1], text_font(int(64 * u)), w / 2, h * 0.5, (90, 60, 120))
         self.paste_emoji(im, "👇", int(170 * u), w / 2, h * 0.65 + abs(math.sin(t * 6)) * 50 * u, rot=math.sin(t * 4) * 10)
         return im
 
@@ -270,6 +272,8 @@ def render(cfg, output, landscape=False, voice=True):
     think, rev = cfg.get("think_seconds", 4), cfg.get("reveal_seconds", 2.5)
     puzzles = cfg["puzzles"]
     r = Renderer(w, h)
+    if cfg.get("outro_lines"):
+        r.outro_lines = tuple(cfg["outro_lines"])
     rnd = random.Random(1)
 
     # timeline: (duration, frame_fn); audio events go on separate tracks (voice / sfx)
@@ -292,7 +296,7 @@ def render(cfg, output, landscape=False, voice=True):
         vox.append((clock + 0.15, say(f"{rnd.choice(CHEERS)} {p['answer'].title()}!", speed=1.12)))
         clock += rev
     segs.append((OUTRO, r.outro))
-    vox.append((clock + 0.2, say("How many did you get? Tell us in the comments!")))
+    vox.append((clock + 0.2, say(cfg.get("outro_voice", "How many did you get? Tell us in the comments!"))))
     sfx.append((clock, audio.celebrate()))
     clock += OUTRO
 

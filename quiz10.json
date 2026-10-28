@@ -1,0 +1,83 @@
+{
+ "title": "10 Emoji Quizzes!",
+ "subtitle": "Guess the word before the cat gets the fish!",
+ "think_seconds": 4,
+ "reveal_seconds": 2.5,
+ "outro_lines": [
+  "Did you get them all?",
+  "Tell a friend and play again!"
+ ],
+ "outro_voice": "Did you get them all? Tell a friend and play again!",
+ "puzzles": [
+  {
+   "emoji": [
+    "🦷",
+    "🧚"
+   ],
+   "answer": "TOOTH FAIRY"
+  },
+  {
+   "emoji": [
+    "🌞",
+    "🌸"
+   ],
+   "answer": "SUNFLOWER"
+  },
+  {
+   "emoji": [
+    "🌧",
+    "🏹"
+   ],
+   "answer": "RAINBOW"
+  },
+  {
+   "emoji": [
+    "🐢",
+    "🕊"
+   ],
+   "answer": "TURTLE DOVE"
+  },
+  {
+   "emoji": [
+    "🦇",
+    "👨"
+   ],
+   "answer": "BATMAN"
+  },
+  {
+   "emoji": [
+    "🥜",
+    "🧈"
+   ],
+   "answer": "PEANUT BUTTER"
+  },
+  {
+   "emoji": [
+    "🔥",
+    "🐶"
+   ],
+   "answer": "HOT DOG"
+  },
+  {
+   "emoji": [
+    "🌞",
+    "🕶"
+   ],
+   "answer": "SUNGLASSES"
+  },
+  {
+   "emoji": [
+    "💧",
+    "🍂"
+   ],
+   "answer": "WATERFALL"
+  },
+  {
+   "emoji": [
+    "🌲",
+    "🍎"
+   ],
+   "answer": "PINEAPPLE"
+  }
+ ]
+}
